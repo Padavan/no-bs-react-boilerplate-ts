@@ -3,33 +3,27 @@
   "description": "hello world boilerplate with typescript",
   "repository": "",
   "license": "MIT",
-  "devDependencies": {
-    "react-devtools": "^3.4.0",
-    "stylelint": "^9.5.0",
-    "tslint": "^5.18.0"
-  },
+  "type": "module",
   "dependencies": {
-    "@types/react": "^16.8.23",
-    "css-loader": "^1.0.0",
-    "file-loader": "^2.0.0",
-    "html-webpack-plugin": "^3.2.0",
-    "less": "^3.8.1",
-    "less-loader": "^4.1.0",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-hot-loader": "^4.3.11",
-    "rimraf": "^2.6.2",
-    "style-loader": "^0.23.0",
-    "ts-loader": "^6.0.4",
-    "typescript": "^3.5.3",
-    "url-loader": "^1.1.1",
-    "webpack": "^4.19.1",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.8"
+    "@testing-library/react": "^14.1.0",
+    "esbuild": "^0.19.5",
+    "jest-environment-jsdom": "^29.7.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.2.2"
   },
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.dev.js",
-    "build": "webpack --config ./webpack.config.prod.js",
-    "clean": "rimraf dist node_modules"
+    "start": "node build.dev.js",
+    "build": "rimraf dist && node build.prod.js",
+    "typecheck": "tsc --noEmit",
+    "test": "mocha --require ./testHelper.js --config .mocharc.json"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
+    "ignore-styles": "^5.0.1",
+    "mocha": "^10.2.0",
+    "ts-node": "^10.9.1"
   }
 }
